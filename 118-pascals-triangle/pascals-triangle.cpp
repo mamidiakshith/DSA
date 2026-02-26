@@ -13,8 +13,8 @@ public:
     }
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>>v;
-        for(int i=1;i<=numRows;i++){
-            vector<int>temp=rowgen(i);
+        for(int i=0;i<numRows;i++){
+            vector<int>temp=rowgen(i+1);
             v.push_back(temp);
         }
         return v;
