@@ -8,16 +8,16 @@ public:
             int j=i+1;
             int k=nums.size()-1;
             while(j<k){
-                int sum= nums[i]+nums[j]+nums[k];
-                if(sum<0){
-                    j++;
-                }
-                else if(sum>0){
+                int sum=nums[i]+nums[j]+nums[k];
+                if(sum>0){
                     k--;
                 }
+                else if(sum <0){
+                    j++;
+                }
                 else{
-                    vector<int>temp={nums[i],nums[j],nums[k]};
-                    ans.push_back(temp);
+                    vector<int>res={nums[i],nums[j],nums[k]};
+                    ans.push_back(res);
                     j++;
                     k--;
                     while(j<k && nums[j]==nums[j-1])j++;
