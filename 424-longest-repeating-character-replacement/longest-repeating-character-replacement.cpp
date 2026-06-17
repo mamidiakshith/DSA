@@ -1,16 +1,17 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-        int f=0,r=0,mf=0,ml=0;
+        int l=0,r=0,ml=0,mf=0;
+        int n=s.size();
         vector<int>v(26,0);
-        while(r<s.size()){
+        while(r<n){
             v[s[r]-'A']++;
             mf=max(mf,v[s[r]-'A']);
-            while( r-f+1-mf >k){
-                v[s[f]-'A']--;
-                f++;
+            while((r-l+1) -mf >k){
+                v[s[l]-'A']--;
+                l++;
             }
-            ml=max(ml,r-f+1);
+            ml=max(ml,r-l+1);
             r++;
         }
         return ml;
