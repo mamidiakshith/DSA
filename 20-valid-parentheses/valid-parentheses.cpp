@@ -3,51 +3,35 @@ public:
     bool isValid(string s) {
     stack<char> st;    
     bool flag = true;
-
-    for (char c : s) {
-        if (c == '(' || c == '{' || c == '[') {
-            st.push(c);
+    for(char ch:s){
+        if(ch=='(' || ch=='{' || ch=='['){
+            st.push(ch);
         }
-        else {
-            if (st.empty()) {
-                flag = false;
-                break;
+        else if(ch==')'){
+            if( !st.empty() && st.top()=='('){
+                st.pop();
             }
-
-            if (c == ')') {
-                if (st.top() != '(') {
-                    flag = false;
-                    break;
-                }
-                else {
-                    st.pop();
-                }
+            else{
+                return false;
             }
-            else if (c == '}') {
-                if (st.top() != '{') {
-                    flag = false;
-                    break;
-                }
-                else {
-                    st.pop();
-                }
+        }
+        else if(ch==']'){
+            if(!st.empty() && st.top()=='['){
+                st.pop();
             }
-            else if (c == ']') {
-                if (st.top() != '[') {
-                    flag = false;
-                    break;
-                }
-                else {
-                    st.pop();
-                }
+            else{
+                return false;
+            }
+        }
+        else if(ch=='}'){
+            if(!st.empty() && st.top()=='{'){
+                st.pop();
+            }
+            else{
+                return false;
             }
         }
     }
-
-    if (!st.empty()) {
-        flag = false;
-    }
-
-    return flag;
+    return st.empty();
 }
 };
