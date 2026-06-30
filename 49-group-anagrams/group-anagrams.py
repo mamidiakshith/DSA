@@ -8,4 +8,5 @@ class Solution:
             else:
                 g[key]=[i]
         return list(g.values())
+       
         
