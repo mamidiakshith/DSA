@@ -14,9 +14,10 @@ class Solution:
         res=[0]*len(nums)
         for i in range(len(nums)):
             if i-1<0:
-                res[i]=suffix[i+1]
+                res[i]=1*suffix[i+1]
             elif i+1>=len(nums):
-                res[i]=prefix[i-1]
+                res[i]=1*prefix[i-1]
             else:
                 res[i]=prefix[i-1]*suffix[i+1]
+            
         return res
