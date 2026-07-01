@@ -4,13 +4,12 @@ public:
         int l=0,r=height.size()-1;
         int maxi=INT_MIN;
         while(l<r){
-            int len=min(height[r],height[l]);
-            int width=r-l;
-            maxi=max(maxi,len*width);
-            if(height[l]<height[r]){
+            int le=min(height[l],height[r]);
+            int b=r-l;
+            maxi=max(maxi,le*b);
+            if(height[l]<=height[r]){
                 l++;
-            }
-            else{
+            }else{
                 r--;
             }
         }
