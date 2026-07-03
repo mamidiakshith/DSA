@@ -3,12 +3,12 @@ public:
     int search(vector<int>& nums, int target) {
         int l=0,r=nums.size()-1;
         while(l<=r){
-            int mid=l+(r-l)/2;
+            int mid= l+(r-l)/2;
             if(nums[mid]==target){
                 return mid;
             }
-            if(nums[l]<=nums[mid]){
-                if(nums[l]<=target && nums[mid]>target){
+            if(nums[mid]>=nums[l]){
+                if(target<nums[mid] && target>=nums[l]){
                     r=mid-1;
                 }
                 else{
@@ -16,7 +16,7 @@ public:
                 }
             }
             else{
-                if(nums[mid]<target && nums[r]>=target){
+                if(target>nums[mid] && target<=nums[r]){
                     l=mid+1;
                 }
                 else{
@@ -27,3 +27,4 @@ public:
         return -1;
     }
 };
+
