@@ -6,10 +6,10 @@ public:
     }
     
     void push(int val) {
-        if(mst.empty() || val<=mst.top()){
+       if(mst.empty() || mst.top()>= val){
             mst.push(val);
-        }
-        st.push(val);
+       }
+       st.push(val);
     }
     
     void pop() {
