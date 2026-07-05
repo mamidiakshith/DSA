@@ -1,17 +1,14 @@
+from math import comb
 class Solution:
     def rowgen(self,n):
         a=[]
-        a.append(1)
-        x=1
-        for i in range(1,n):
-            x*=(n-i)
-            x//=i
-            a.append(x)
+        for i in range(n+1):
+            a.append(comb(n,i))
         return a
 
     def generate(self, numRows: int) -> List[List[int]]:
         res=[]
-        for i in range(1,numRows+1):
+        for i in range(numRows):
             b=self.rowgen(i)
             res.append(b)
         return res
