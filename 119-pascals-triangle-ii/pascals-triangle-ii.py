@@ -1,13 +1,9 @@
 class Solution:
-    def rowgen(self,n):
+    def getRow(self, rowIndex: int) -> List[int]:
+        n=rowIndex
         a=[]
-        a.append(1)
-        res=1
-        for i in range(1,n):
-            res=res*(n-i)
-            res//=i
-            a.append(res)
+        for i in range(n+1):
+            a.append(comb(n,i))
         return a
 
-    def getRow(self, rowIndex: int) -> List[int]:
-        return self.rowgen(rowIndex+1)
+        
