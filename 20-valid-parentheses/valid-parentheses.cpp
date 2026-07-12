@@ -4,19 +4,11 @@ public:
     stack<char> st;    
     bool flag = true;
     for(char ch:s){
-        if(ch=='(' || ch=='{' || ch=='['){
+        if(ch=='{' || ch=='[' || ch=='('){
             st.push(ch);
         }
         else if(ch==')'){
-            if( !st.empty() && st.top()=='('){
-                st.pop();
-            }
-            else{
-                return false;
-            }
-        }
-        else if(ch==']'){
-            if(!st.empty() && st.top()=='['){
+            if(!st.empty() && st.top()=='('){
                 st.pop();
             }
             else{
@@ -25,6 +17,14 @@ public:
         }
         else if(ch=='}'){
             if(!st.empty() && st.top()=='{'){
+                st.pop();
+            }
+            else{
+                return false;
+            }
+        }
+        else if(ch==']'){
+            if(!st.empty() && st.top()=='['){
                 st.pop();
             }
             else{
