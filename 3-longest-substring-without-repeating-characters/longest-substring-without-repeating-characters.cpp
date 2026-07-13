@@ -5,15 +5,14 @@ public:
         int ml=0;
         unordered_set<int>c;
         while(r<s.size()){
-                while(c.find(s[r])!=c.end()){
-                    c.erase(s[l]);
-                    l++;
-                }
-                c.insert(s[r]);
-                ml=max(ml,r-l+1);
+            while(c.find(s[r])!=c.end()){
+                c.erase(s[l]);
+                l++;
+            }
+            c.insert(s[r]);
+            ml=max(ml,r-l+1);
             r++;
         }
         return ml;
     }
-
 };
