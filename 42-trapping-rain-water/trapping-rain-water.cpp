@@ -12,13 +12,11 @@ public:
         for(int i=n-2;i>=0;i--){
             rightmax[i]=max(rightmax[i+1],height[i]);
         }
-        int tot=0;
+        int s=0;
         for(int i=0;i<n;i++){
-            if(height[i]<leftmax[i] && height[i]<rightmax[i]){
-                tot+= min(leftmax[i],rightmax[i])-height[i];
-            }
+            s+= min(leftmax[i],rightmax[i])-height[i];
         }
-        return tot;
+        return s;
 
     }
 };
