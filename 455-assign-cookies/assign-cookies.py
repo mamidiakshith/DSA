@@ -1,17 +1,17 @@
-from itertools import zip_longest
 class Solution:
     def findContentChildren(self, g: List[int], s: List[int]) -> int:
         g.sort()
         s.sort()
-        l=r=c=0
-        while l<len(g) and r<len(s):
-            if g[l]<=s[r]:
+        i=j=c=0
+        while i<len(g) and j<len(s):
+            if s[j]>=g[i]:
                 c+=1
-                l+=1
-                r+=1
+                j+=1
+                i+=1
             else:
-                r+=1
+                j+=1
         return c
+        
 
 
 
