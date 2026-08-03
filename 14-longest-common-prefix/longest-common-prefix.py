@@ -7,5 +7,6 @@ class Solution:
                 k+=strs[0][i]
             else:
                 break
+
         return k
             
