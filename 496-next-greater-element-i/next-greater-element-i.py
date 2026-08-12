@@ -3,10 +3,12 @@ class Solution:
         a=[]
         for i in nums1:
             idx=nums2.index(i)
-            found=-1
-            for j in range(idx,len(nums2)):
+            flag=False
+            for j in range(idx+1,len(nums2)):
                 if nums2[j]>i:
-                    found=nums2[j]
+                    flag=True
+                    a.append(nums2[j])
                     break
-            a.append(found)
+            if flag==False:
+                a.append(-1)
         return a
