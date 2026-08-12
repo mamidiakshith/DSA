@@ -9,6 +9,6 @@ class Solution:
                     flag=True
                     a.append(nums2[j])
                     break
-            if flag==False:
+            if not flag:
                 a.append(-1)
         return a
